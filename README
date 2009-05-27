@@ -14,7 +14,7 @@ A few things you need to keep in mind with ActsAsLoggable are:
 USAGE:
 
 1.) Install the plugin
-  ./script/plugin install git@github.com:joshnabbott/acts_as_loggable.git
+  ./script/plugin install git://github.com/joshnabbott/acts_as_loggable.git
 
 2.) Run plugin generator
   ./script/generate acts_as_loggable

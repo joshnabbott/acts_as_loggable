@@ -1,0 +1,10 @@
+mysql:
+  :adapter: mysql
+  :host: localhost
+  :username: root
+  :password:
+  :database: action_logger_test
+
+sqlite3:
+  :adapter: sqlite3
+  :database: ':memory:'

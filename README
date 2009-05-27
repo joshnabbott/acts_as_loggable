@@ -1,0 +1,34 @@
+ActsAsLoggable
+==============
+
+How many times have you been informed by a customer or visitor to your site of a horrible type right on your front page and thought "Huh. That's weird, I don't usually make mistakes like that. I wonder who messed that up?"
+
+Well, ActsAsLoggable is a simple plugin that gives you the power to know who it was and when they did it. It's as simple as adding acts_as_loggable to the model you want to "Big Brotherize" and then sit back and enjoy the peace of mind knowing that whatever records are getting added, edited, or destroyed you'll know who did it.
+
+ActsAsLoggable also supports standard :except and :only conditions (acts_as_loggable :except => [ :create, :update ]).
+
+A few things you need to keep in mind with ActsAsLoggable are:
+1.) It only records create, update, and destroy actions.
+2.) AAL was built using RestfulAuthentication as my User authentication module which doesn't really mean anything other than it assumes you're working with a User model and assumes the User's session is stored as current_user. That can be easily changed if you working with a different setup
+
+USAGE:
+
+1.) Install the plugin
+  ./script/plugin install acts_as_loggable
+
+2.) Run plugin generator
+  ./script/generate acts_as_loggable
+
+2.) Add these lines to app/models/user.rb:
+  cattr_accessor :current_user
+  has_many :action_logs
+
+3.) Add this to application_controller.rb:
+  before_filter do |controller|
+    User.current_user = controller.instance_eval { current_user }
+  end
+
+3.) Add to any model you want to be action logged
+  acts_as_loggable
+
+Copyright (c) 2008 Joshua Abbott, released under the MIT license

@@ -1,0 +1,7 @@
+good_josh:
+  id: 1
+  login: good_josh
+  
+evil_josh:
+  id: 2
+  login: evil_josh

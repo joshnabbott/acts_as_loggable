@@ -1,0 +1,7 @@
+product_one:
+  id: 1
+  title: Neat-o Product
+  
+product_two:
+  id: 2
+  title: Sucky Product

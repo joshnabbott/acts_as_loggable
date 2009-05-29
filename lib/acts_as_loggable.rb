@@ -46,10 +46,9 @@ module ActiveRecord #:nodoc:
       module InstanceMethods
         def log_action(attributes = {})
           if User.current_user
-            attributes.assert_valid_keys(:action, :description) unless attributes.empty?
-            action      = attributes[:action] || action
-            description = attributes[:description] || description
-            record = self.action_logs.build(:user_id => User.current_user.id, :action => action, :description => description)
+            attributes.assert_valid_keys(:action, :description, :loggable_before_changes, :loggable_after_changes)
+            attributes.merge!(:user => User.current_user)
+            record = self.action_logs.build(attributes)
             record.save!
           end
         end

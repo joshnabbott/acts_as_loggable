@@ -49,7 +49,6 @@ module ActiveRecord #:nodoc:
             attributes.assert_valid_keys(:action, :description, :loggable_before_changes, :loggable_after_changes)
             attributes.merge!(:user => User.current_user)
             record = self.action_logs.build(attributes)
-            record.save!
           end
         end
       end #InstanceMethods
